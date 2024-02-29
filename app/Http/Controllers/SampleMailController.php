@@ -11,8 +11,11 @@ class SampleMailController extends Controller
 
     public function index()
     {
-        $subject = 'Sample subject';
-        $body = 'This is a sample body';
-        Mail::to('user@gmail.com')->send(new SampleMail($subject, $body));
+        //Sending multiple emails
+        for ($x = 0; $x <= 4; $x++) {
+            $subject = "Sample subject {$x}";
+            $body = 'This is a sample body';
+            Mail::to('user@gmail.com')->send(new SampleMail($subject, $body));
+        }
     }
 }
