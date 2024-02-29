@@ -14,14 +14,16 @@ class SampleMail extends Mailable
     use Queueable, SerializesModels;
 
 
-    public $subject, $body;
+    public $subject, $body, $username, $password;
     /**
      * Create a new message instance.
      */
-    public function __construct($subject, $body)
+    public function __construct($subject, $body, $username, $password)
     {
         $this->subject = $subject;
         $this->body = $body;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     /**
